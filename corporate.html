@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>法人向けオフィス鍼灸サービス｜ときのはり鍼灸院</title>
+  <meta name="description" content="ときのはり鍼灸院の法人向け出張鍼灸サービス。週1回オフィスへ訪問し、社員の肩こり・頭痛・自律神経ケアを国家資格保持の鍼灸師が提供します。大阪市中央区・天満橋エリア対応。">
+
+  <!-- OGP -->
+  <meta property="og:title" content="法人向けオフィス鍼灸サービス｜ときのはり鍼灸院">
+  <meta property="og:description" content="週1回オフィスへ訪問。国家資格者による社員の肩こり・頭痛ケア。大阪市中央区・天満橋エリア対応。">
+  <meta property="og:url" content="https://tokinohari.com/corporate">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://tokinohari.com/images/hero.jpg">
+  <meta property="og:locale" content="ja_JP">
+  <link rel="canonical" href="https://tokinohari.com/corporate">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── 法人ページ専用スタイル ── */
+
+    /* ヒーロー（法人向け） */
+    .corp-hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .corp-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('images/interior.jpg');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+
+    .corp-hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(250,248,245,0.88) 0%, rgba(244,239,232,0.82) 100%);
+    }
+
+    .corp-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      padding: 120px 24px 80px;
+    }
+
+    .corp-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .corp-eyebrow-line {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .corp-eyebrow span {
+      font-family: var(--font-en);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .corp-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.55;
+      margin-bottom: 28px;
+    }
+
+    .corp-hero-title em {
+      font-style: normal;
+      color: var(--gold);
+    }
+
+    .corp-hero-text {
+      font-size: 0.95rem;
+      color: var(--text-sub);
+      line-height: 2.1;
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+
+    .corp-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--text);
+      color: var(--off-white);
+      font-family: var(--font-ja);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 16px 36px;
+      letter-spacing: 0.08em;
+      transition: background 0.3s;
+    }
+
+    .corp-hero-cta:hover { background: #444; }
+
+    .corp-hero-cta-sub {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-left: 16px;
+      font-size: 0.85rem;
+      color: var(--gold);
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      transition: opacity 0.3s;
+    }
+
+    .corp-hero-cta-sub:hover { opacity: 0.7; }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 16px 0 0;
+      font-size: 0.78rem;
+      color: var(--text-sub);
+    }
+
+    .breadcrumb a {
+      color: var(--gold);
+      transition: opacity 0.2s;
+    }
+
+    .breadcrumb a:hover { opacity: 0.7; }
+
+    .breadcrumb span { margin: 0 8px; }
+
+    /* セクション共通（法人） */
+    .corp-section {
+      padding: 96px 0;
+    }
+
+    .corp-section-alt {
+      background: var(--off-white);
+    }
+
+    .corp-section-dark {
+      background: #2d2d2d;
+      color: var(--off-white);
+    }
+
+    /* 数字アイキャッチ */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+      background: var(--border);
+    }
+
+    .stat-item {
+      background: var(--white);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--font-en);
+      font-size: clamp(2.4rem, 5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-num sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    .stat-source {
+      font-size: 0.68rem;
+      color: #bbb;
+      margin-top: 6px;
+    }
+
+    /* 特徴カード（法人） */
+    .corp-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .corp-feature-card {
+      background: var(--white);
+      border-top: 2px solid var(--gold);
+      padding: 36px 28px;
+    }
+
+    .corp-feature-num {
+      font-family: var(--font-en);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .corp-feature-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .corp-feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+
+    /* 導入フロー */
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      margin-top: 56px;
+      position: relative;
+    }
+
+    .flow-grid::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: calc(12.5% + 16px);
+      right: calc(12.5% + 16px);
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .flow-step {
+      padding: 0 16px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flow-step-num {
+      width: 64px;
+      height: 64px;
+      background: var(--white);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-family: var(--font-en);
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .flow-step h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .flow-step p {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      line-height: 1.8;
+    }
+
+    .flow-step .flow-free {
+      display: inline-block;
+      font-size: 0.68rem;
+      background: var(--gold);
+      color: white;
+      padding: 2px 8px;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    /* 料金プラン */
+    .corp-pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+
+    .corp-price-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      transition: box-shadow 0.3s;
+    }
+
+    .corp-price-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .corp-price-card.featured {
+      border-color: var(--gold);
+      border-width: 2px;
+    }
+
+    .corp-price-badge {
+      position: absolute;
+      top: -1px;
+      right: 24px;
+      background: var(--gold);
+      color: white;
+      font-size: 0.68rem;
+      padding: 4px 14px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    .corp-plan-label {
+      font-family: var(--font-en);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .corp-price-card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .corp-price-amount {
+      font-family: var(--font-en);
+      font-size: 2.4rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .corp-price-amount span {
+      font-size: 0.85rem;
+      font-family: var(--font-ja);
+      color: var(--text-sub);
+      font-weight: 400;
+    }
+
+    .corp-price-unit {
+      font-size: 0.78rem;
+      color: var(--text-sub);
+      margin-bottom: 28px;
+    }
+
+    .corp-price-unit strong {
+      color: var(--gold);
+      font-weight: 500;
+    }
+
+    .corp-price-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .corp-price-card li {
+      font-size: 0.82rem;
+      color: var(--text-sub);
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .corp-price-card li:last-child { border-bottom: none; }
+
+    .corp-price-card li::before {
+      content: '—';
+      color: var(--gold);
+      font-size: 0.72rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .corp-pricing-note {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: var(--off-white);
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      line-height: 2;
+      border-left: 2px solid var(--gold);
+    }
+
+    /* FAQ */
+    .corp-faq {
+      margin-top: 56px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .corp-faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .corp-faq-q {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 22px 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .corp-faq-q:hover { color: var(--gold); }
+
+    .corp-faq-q-mark {
+      font-family: var(--font-en);
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 500;
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .corp-faq-q-text {
+      flex: 1;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .corp-faq-toggle {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      position: relative;
+    }
+
+    .corp-faq-toggle::before,
+    .corp-faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: var(--gold);
+      border-radius: 1px;
+      transition: transform 0.3s;
+    }
+
+    .corp-faq-toggle::before {
+      width: 14px; height: 1px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .corp-faq-toggle::after {
+      width: 1px; height: 14px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .corp-faq-item.open .corp-faq-toggle::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .corp-faq-a {
+      display: none;
+      padding: 0 0 20px 36px;
+      font-size: 0.85rem;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+
+    .corp-faq-item.open .corp-faq-a { display: block; }
+
+    /* お問い合わせ */
+    .corp-contact {
+      background: #2d2d2d;
+      padding: 96px 0;
+      text-align: center;
+    }
+
+    .corp-contact .section-label { color: #888; }
+
+    .corp-contact h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 300;
+      color: var(--off-white);
+      margin-bottom: 16px;
+    }
+
+    .corp-contact p {
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 2;
+      margin-bottom: 48px;
+    }
+
+    .corp-contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #444;
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+
+    .corp-contact-item {
+      background: #2d2d2d;
+      padding: 28px 24px;
+      text-align: center;
+    }
+
+    .corp-contact-label {
+      font-family: var(--font-en);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: #888;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .corp-contact-value {
+      font-size: 0.9rem;
+      color: var(--off-white);
+      line-height: 1.6;
+    }
+
+    .corp-contact-value a {
+      color: var(--gold-light);
+      transition: opacity 0.2s;
+    }
+
+    .corp-contact-value a:hover { opacity: 0.7; }
+
+    .corp-contact-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-family: var(--font-ja);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 16px 48px;
+      letter-spacing: 0.1em;
+      transition: background 0.3s;
+    }
+
+    .corp-contact-btn:hover { background: #a07d52; }
+
+    .corp-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #888;
+      font-size: 0.82rem;
+      margin-top: 20px;
+      transition: color 0.2s;
+    }
+
+    .corp-back-link:hover { color: var(--off-white); }
+
+    /* レスポンシブ */
+    @media (max-width: 840px) {
+      .corp-hero-content { padding: 100px 24px 60px; }
+      .stat-grid { grid-template-columns: 1fr; gap: 1px; }
+      .corp-feature-grid { grid-template-columns: 1fr; gap: 16px; }
+      .flow-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .flow-grid::before { display: none; }
+      .corp-pricing-grid { grid-template-columns: 1fr; }
+      .corp-contact-grid { grid-template-columns: 1fr; }
+      .corp-hero-cta-sub { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .flow-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー（メインサイトと共通） -->
+  <header id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-en">TOKINOHARI</span>
+        <span class="logo-ja">ときのはり鍼灸院</span>
+      </a>
+      <nav class="nav-pc">
+        <ul>
+          <li><a href="index.html#about">院について</a></li>
+          <li><a href="index.html#menu">メニュー・料金</a></li>
+          <li><a href="index.html#features">特徴</a></li>
+          <li><a href="index.html#access">アクセス</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn-reserve-header">お問い合わせ</a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="nav-sp" id="navSp">
+      <ul>
+        <li><a href="index.html#about" class="sp-link">院について</a></li>
+        <li><a href="index.html#menu" class="sp-link">メニュー・料金</a></li>
+        <li><a href="index.html#features" class="sp-link">特徴</a></li>
+        <li><a href="index.html#access" class="sp-link">アクセス</a></li>
+        <li><a href="#contact" class="sp-link sp-reserve">法人お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ヒーロー -->
+  <section class="corp-hero">
+    <div class="corp-hero-bg"></div>
+    <div class="corp-hero-content container">
+      <div class="breadcrumb">
+        <a href="index.html">ときのはり鍼灸院</a>
+        <span>/</span>
+        法人向けサービス
+      </div>
+      <br>
+      <div class="corp-eyebrow">
+        <div class="corp-eyebrow-line"></div>
+        <span>CORPORATE WELLNESS</span>
+        <div class="corp-eyebrow-line"></div>
+      </div>
+      <h1 class="corp-hero-title">
+        社員の<em>整う時間</em>を、<br>
+        オフィスへお届けします。
+      </h1>
+      <p class="corp-hero-text">
+        週1回、国家資格を持つ鍼灸師が御社へ訪問。<br>
+        デスクワーク由来の肩こり・頭痛・自律神経の乱れを<br>
+        その場でケアし、社員の生産性と定着率をサポートします。
+      </p>
+      <a href="#contact" class="corp-hero-cta">無料体験・お問い合わせ</a>
+      <a href="#pricing" class="corp-hero-cta-sub">料金を見る →</a>
+    </div>
+  </section>
+
+  <!-- 数字で見る背景 -->
+  <section class="corp-section">
+    <div class="container">
+      <p class="section-label">THE PROBLEM</p>
+      <h2 class="section-title">デスクワーカーが抱える、見えないコスト</h2>
+      <p class="section-desc">体の不調は、生産性と離職率に直接影響しています。</p>
+
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-num">74<sup>%</sup></div>
+          <div class="stat-label">出張整体導入企業で<br>「集中力が向上した」と回答した社員の割合</div>
+          <div class="stat-source">※ 導入企業アンケートより</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">15<sup>%</sup></div>
+          <div class="stat-label">ウェルネスプログラム導入後の<br>欠勤日数の平均減少率</div>
+          <div class="stat-source">※ 国内企業健康経営データより</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">3<sup>位</sup></div>
+          <div class="stat-label">肩こり・腰痛は<br>「仕事中に感じる不調」の上位</div>
+          <div class="stat-source">※ 厚生労働省 国民生活基礎調査</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 選ばれる理由 -->
+  <section class="corp-section corp-section-alt">
+    <div class="container">
+      <p class="section-label">WHY TOKINOHARI</p>
+      <h2 class="section-title">ときのはりが選ばれる理由</h2>
+      <p class="section-desc">マッサージや整体とは異なる、医療専門職としての確かな技術。</p>
+
+      <div class="corp-feature-grid">
+        <div class="corp-feature-card">
+          <div class="corp-feature-num">01</div>
+          <h3>国家資格者による施術</h3>
+          <p>はり師・きゅう師の国家資格を持つ院長が直接施術を行います。整体やリラクゼーションとは異なり、医療専門職としての根拠ある施術を提供します。</p>
+        </div>
+        <div class="corp-feature-card">
+          <div class="corp-feature-num">02</div>
+          <h3>準備ゼロで始められる</h3>
+          <p>施術ベッド・鍼・備品はすべて持参します。会議室や休憩スペース1室があれば導入可能。御社側の準備は一切不要です。</p>
+        </div>
+        <div class="corp-feature-card">
+          <div class="corp-feature-num">03</div>
+          <h3>昼休みに完結する</h3>
+          <p>1名あたり20〜30分の施術なので、昼休みや就業後の短時間で対応可能。業務を止めることなく、社員がケアを受けられます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 導入のながれ -->
+  <section class="corp-section">
+    <div class="container">
+      <p class="section-label">HOW IT WORKS</p>
+      <h2 class="section-title">導入のながれ</h2>
+      <p class="section-desc">お問い合わせから最短2週間でスタートできます。</p>
+
+      <div class="flow-grid">
+        <div class="flow-step">
+          <div class="flow-step-num">01</div>
+          <span class="flow-free">無料</span>
+          <h3>ヒアリング</h3>
+          <p>社員数・オフィス環境・ご要望をヒアリング。メールまたはお電話で対応します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">02</div>
+          <span class="flow-free">無料</span>
+          <h3>現地確認・体験施術</h3>
+          <p>オフィスへ伺い、施術スペースを確認。希望者2〜3名に体験施術を行います。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">03</div>
+          <h3>ご契約・日程調整</h3>
+          <p>プランを選定し、業務委託契約を締結。毎週の訪問曜日・時間帯を決定します。</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-num">04</div>
+          <h3>定期訪問スタート</h3>
+          <p>週1回、決まった時間に訪問。月次レポートで社員の状態を共有します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金プラン -->
+  <section id="pricing" class="corp-section corp-section-alt">
+    <div class="container">
+      <p class="section-label">PRICING</p>
+      <h2 class="section-title">料金プラン</h2>
+      <p class="section-desc">週1回訪問・月4回換算。人数・時間はご要望に応じてカスタマイズ可能です。</p>
+
+      <div class="corp-pricing-grid">
+
+        <div class="corp-price-card">
+          <div class="corp-plan-label">STARTER</div>
+          <h3>スターター</h3>
+          <div class="corp-price-amount">¥42,000<span>／月</span></div>
+          <div class="corp-price-unit">1名あたり <strong>¥3,500</strong>／回（20分）</div>
+          <ul>
+            <li>週1回訪問（月4回）</li>
+            <li>1回3名・20分／人</li>
+            <li>実滞在時間 約1.5時間</li>
+            <li>施術ベッド・備品持参</li>
+            <li>月次満足度アンケート</li>
+          </ul>
+        </div>
+
+        <div class="corp-price-card featured">
+          <div class="corp-price-badge">おすすめ</div>
+          <div class="corp-plan-label">STANDARD</div>
+          <h3>スタンダード</h3>
+          <div class="corp-price-amount">¥56,000<span>／月</span></div>
+          <div class="corp-price-unit">1名あたり <strong>¥3,500</strong>／回（20分）</div>
+          <ul>
+            <li>週1回訪問（月4回）</li>
+            <li>1回4名・20分／人</li>
+            <li>実滞在時間 約2時間</li>
+            <li>施術ベッド・備品持参</li>
+            <li>月次レポート提出</li>
+          </ul>
+        </div>
+
+        <div class="corp-price-card">
+          <div class="corp-plan-label">FULL</div>
+          <h3>フル</h3>
+          <div class="corp-price-amount">¥84,000<span>／月</span></div>
+          <div class="corp-price-unit">1名あたり <strong>¥3,500</strong>／回（20分）</div>
+          <ul>
+            <li>週1回訪問（月4回）</li>
+            <li>1回6名・20分／人（上限）</li>
+            <li>実滞在時間 約3時間</li>
+            <li>施術ベッド・備品持参</li>
+            <li>月次レポート＋改善提案</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="corp-pricing-note">
+        ※ 全プラン統一単価 ¥3,500／人／回（施術20分＋問診・準備込み）。<br>
+        ※ 1回あたりの施術人数は最大6名。それ以上はお受けできません。<br>
+        ※ 大阪市中央区および近隣エリアは交通費無料。遠方は実費をご請求する場合があります。<br>
+        ※ 初回は無料体験施術（2〜3名）をご利用いただけます。
+      </div>
+    </div>
+  </section>
+
+  <!-- よくあるご質問 -->
+  <section class="corp-section">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h2 class="section-title">よくあるご質問</h2>
+
+      <div class="corp-faq">
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">施術スペースはどれくらい必要ですか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">会議室や休憩室など、ベッド1台（幅60cm×長さ185cm程度）が置けるスペースがあれば導入できます。パーティションで簡易的に仕切るだけでも問題ありません。事前に現地確認にお伺いします。</div>
+        </div>
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">鍼が怖い・初めてでも大丈夫ですか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">はい、初めての方がほとんどです。使用する鍼は直径0.16mm程度の極細のもので、注射針とは全く異なります。施術前に丁寧にご説明し、不安な方には鍼を使わないケアから始めることも可能です。</div>
+        </div>
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">万が一のトラブル・怪我はどうなりますか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">治療家向け賠償責任保険に加入しています。施術前に必ず問診・同意書の取得を行い、契約書に免責・責任範囲を明記します。安全を最優先とした施術を行いますのでご安心ください。</div>
+        </div>
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">何名の社員がいれば導入できますか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">社員数に制限はありません。スタータープランなら1回4名からご利用いただけます。まず希望者のみで始め、口コミで広げていく導入先も多いです。</div>
+        </div>
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">契約期間の縛りはありますか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">最低契約期間は3ヶ月からとしています。まず3ヶ月お試しいただき、効果を確認した上で継続をご検討いただけます。</div>
+        </div>
+
+        <div class="corp-faq-item">
+          <div class="corp-faq-q" onclick="toggleFaq(this)">
+            <div class="corp-faq-q-mark">Q</div>
+            <div class="corp-faq-q-text">経費計上はできますか？</div>
+            <div class="corp-faq-toggle"></div>
+          </div>
+          <div class="corp-faq-a">福利厚生費または業務委託費として計上いただいている企業様がほとんどです。毎月請求書・領収書を発行します。詳しくは貴社の経理・顧問税理士にご確認ください。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact" class="corp-contact">
+    <div class="container">
+      <p class="section-label">CONTACT</p>
+      <h2>まずは無料体験からどうぞ</h2>
+      <p>
+        ご質問・無料体験施術のお申し込みは<br>
+        メールまたはお電話にてお気軽にご連絡ください。
+      </p>
+
+      <div class="corp-contact-grid">
+        <div class="corp-contact-item">
+          <div class="corp-contact-label">TEL</div>
+          <div class="corp-contact-value">
+            <a href="tel:05071159456">050-7115-9456</a>
+          </div>
+        </div>
+        <div class="corp-contact-item">
+          <div class="corp-contact-label">MAIL</div>
+          <div class="corp-contact-value">
+            <a href="mailto:sakiko.mrmr@gmail.com">sakiko.mrmr@gmail.com</a>
+          </div>
+        </div>
+        <div class="corp-contact-item">
+          <div class="corp-contact-label">ADDRESS</div>
+          <div class="corp-contact-value">
+            大阪市中央区大手通2-1-11<br>ブエナビスタ301
+          </div>
+        </div>
+      </div>
+
+      <a href="mailto:sakiko.mrmr@gmail.com" class="corp-contact-btn">メールでお問い合わせ</a>
+      <br>
+      <a href="index.html" class="corp-back-link">← ときのはり鍼灸院 トップへ</a>
+
+      <p style="margin-top:32px;font-size:0.75rem;color:#666;line-height:1.8;">
+        院長 木村咲子（はり師・きゅう師）<br>
+        ときのはり鍼灸院｜大阪市中央区
+      </p>
+    </div>
+  </section>
+
+  <!-- フッター（メインサイトと共通） -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-en">TOKINOHARI</span>
+          <span class="logo-ja">ときのはり鍼灸院</span>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html#about">院について</a>
+          <a href="index.html#menu">メニュー・料金</a>
+          <a href="index.html#features">特徴</a>
+          <a href="index.html#access">アクセス</a>
+          <a href="corporate.html" style="color:var(--gold-light);">法人向けサービス</a>
+        </nav>
+        <div class="footer-sns">
+          <a href="https://www.instagram.com/sakiko.tokinohari/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://lin.ee/5tpBmgf" target="_blank" rel="noopener">LINE予約</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 ときのはり鍼灸院 All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(el) {
+      el.closest('.corp-faq-item').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
