@@ -446,44 +446,7 @@
         <a href="blog/index.html" class="blog-all-link">ALL POSTS →</a>
       </div>
 
-      <div class="blog-grid">
-        <article class="blog-card reveal">
-          <a href="blog/kata-kori-20260401.html">
-            <div class="blog-img-wrap">
-              <img src="images/counseling.jpg" alt="春の首肩こり鍼灸" class="blog-img" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-tag">SHOULDER &amp; NECK</span>
-              <h3>春になると首や肩が重くなる…季節の変わり目こそ鍼灸でリセットを</h3>
-              <p class="blog-date">2026.04.01</p>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card reveal reveal-delay-1">
-          <a href="blog/biyoshin-20260331.html">
-            <div class="blog-img-wrap">
-              <img src="images/about.jpg" alt="美容鍼" class="blog-img" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-tag">BEAUTY</span>
-              <h3>「顔がたるんできた気がする…」それ、鍼灸で内側から引き上げられます</h3>
-              <p class="blog-date">2026.03.31</p>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card reveal reveal-delay-2">
-          <a href="blog/kata-kori-20260330.html">
-            <div class="blog-img-wrap">
-              <img src="images/counseling.jpg" alt="首肩こり" class="blog-img" loading="lazy">
-            </div>
-            <div class="blog-card-body">
-              <span class="blog-tag">SHOULDER &amp; NECK</span>
-              <h3>「首が重い、肩がガチガチ…」それ、放っておくと頭痛や自律神経の乱れにつながります</h3>
-              <p class="blog-date">2026.03.30</p>
-            </div>
-          </a>
-        </article>
-      </div>
+      <div class="blog-grid" id="home-blog-grid"></div>
     </div>
   </section>
 
@@ -593,5 +556,30 @@
   </div>
 
   <script src="js/main.js"></script>
+  <script>
+    fetch('blog/posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const grid = document.getElementById('home-blog-grid');
+        const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
+        posts.slice(0, 3).forEach((post, i) => {
+          const el = document.createElement('article');
+          el.className = 'blog-card reveal' + delays[i];
+          el.innerHTML =
+            '<a href="blog/' + post.file + '">' +
+              '<div class="blog-img-wrap">' +
+                '<img src="images/' + post.image + '" alt="' + post.alt + '" class="blog-img" loading="lazy">' +
+              '</div>' +
+              '<div class="blog-card-body">' +
+                '<span class="blog-tag">' + post.tagEn + '</span>' +
+                '<h3>' + post.title + '</h3>' +
+                '<p class="blog-date">' + post.dateLabel + '</p>' +
+              '</div>' +
+            '</a>';
+          grid.appendChild(el);
+          if (window._revealObserver) window._revealObserver.observe(el);
+        });
+      });
+  </script>
 </body>
 </html>

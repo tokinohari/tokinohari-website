@@ -49,6 +49,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+window._revealObserver = revealObserver;
 
 // ── Stagger children
 document.querySelectorAll('[data-stagger]').forEach(parent => {

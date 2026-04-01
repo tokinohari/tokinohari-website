@@ -60,68 +60,7 @@
         <h1 class="section-title">鍼灸コラム</h1>
         <p class="section-desc">女性の体と健康に役立つ情報をお届けします。</p>
 
-        <div class="blog-grid">
-
-          <!-- 新しい記事はここに追加（上に追加していく） -->
-
-          <article class="blog-card">
-            <a href="kata-kori-20260401.html">
-              <img src="../images/counseling.jpg" alt="春の首肩こり鍼灸" class="blog-img">
-              <div class="blog-card-body">
-                <span class="blog-tag">肩こり・首こり</span>
-                <h2>春になると首や肩が重くなる…季節の変わり目こそ鍼灸でリセットを</h2>
-                <p class="blog-date">2026.04.01</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card">
-            <a href="biyoshin-20260331.html">
-              <img src="../images/hero.jpg" alt="美容鍼灸" class="blog-img">
-              <div class="blog-card-body">
-                <span class="blog-tag">美容鍼</span>
-                <h2>「顔がたるんできた気がする…」それ、鍼灸で内側から引き上げられます</h2>
-                <p class="blog-date">2026.03.31</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card">
-            <a href="kata-kori-20260330.html">
-              <img src="../images/counseling.jpg" alt="首肩こり鍼灸" class="blog-img">
-              <div class="blog-card-body">
-                <span class="blog-tag">肩こり・首こり</span>
-                <h2>「首が重い、肩がガチガチ…」それ、放っておくと頭痛や自律神経の乱れにつながります</h2>
-                <p class="blog-date">2026.03.30</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card">
-            <a href="jiritsushinkei-20260330.html">
-              <img src="../images/room.jpg" alt="自律神経と鍼灸" class="blog-img">
-              <div class="blog-card-body">
-                <span class="blog-tag">自律神経</span>
-                <h2>眠れない・疲れが抜けない…それ、自律神経の乱れかもしれません</h2>
-                <p class="blog-date">2026.03.30</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="blog-card">
-            <a href="ninkatsu-20260330.html">
-              <img src="../images/interior.jpg" alt="妊活鍼灸" class="blog-img">
-              <div class="blog-card-body">
-                <span class="blog-tag">妊活</span>
-                <h2>「なかなか授からない」と感じたら。妊活に鍼灸が選ばれる理由</h2>
-                <p class="blog-date">2026.03.30</p>
-              </div>
-            </a>
-          </article>
-
-          <!-- 新しい記事はここに追加（上に追加していく） -->
-
-        </div>
+        <div class="blog-grid" id="all-blog-grid"></div>
       </div>
     </section>
   </main>
@@ -158,5 +97,26 @@
   </div>
 
   <script src="../js/main.js"></script>
+  <script>
+    fetch('posts.json')
+      .then(r => r.json())
+      .then(posts => {
+        const grid = document.getElementById('all-blog-grid');
+        posts.forEach(post => {
+          const el = document.createElement('article');
+          el.className = 'blog-card';
+          el.innerHTML =
+            '<a href="' + post.file + '">' +
+              '<img src="../images/' + post.image + '" alt="' + post.alt + '" class="blog-img">' +
+              '<div class="blog-card-body">' +
+                '<span class="blog-tag">' + post.tag + '</span>' +
+                '<h2>' + post.title + '</h2>' +
+                '<p class="blog-date">' + post.dateLabel + '</p>' +
+              '</div>' +
+            '</a>';
+          grid.appendChild(el);
+        });
+      });
+  </script>
 </body>
 </html>
