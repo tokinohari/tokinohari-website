@@ -564,7 +564,7 @@
         const delays = ['', ' reveal-delay-1', ' reveal-delay-2'];
         posts.slice(0, 3).forEach((post, i) => {
           const el = document.createElement('article');
-          el.className = 'blog-card reveal' + delays[i];
+          el.className = 'blog-card reveal visible' + delays[i];
           el.innerHTML =
             '<a href="blog/' + post.file + '">' +
               '<div class="blog-img-wrap">' +
@@ -577,7 +577,6 @@
               '</div>' +
             '</a>';
           grid.appendChild(el);
-          if (window._revealObserver) window._revealObserver.observe(el);
         });
       });
   </script>
