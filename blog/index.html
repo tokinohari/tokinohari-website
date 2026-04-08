@@ -61,6 +61,22 @@
         <p class="section-desc">女性の体と健康に役立つ情報をお届けします。</p>
 
         <div class="blog-grid" id="all-blog-grid"></div>
+
+        <!-- SEO: 静的リンク（Googlebot用。JSが実行されない場合でも記事を発見できるようにする） -->
+        <nav aria-label="ブログ記事一覧" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">
+          <a href="kata-kori-20260330.html">首が重い、肩がガチガチ…それ、放っておくと頭痛や自律神経の乱れにつながります</a>
+          <a href="jiritsushinkei-20260330.html">眠れない・疲れが抜けない…それ、自律神経の乱れかもしれません</a>
+          <a href="ninkatsu-20260330.html">「なかなか授からない」と感じたら。妊活に鍼灸が選ばれる理由</a>
+          <a href="biyoshin-20260331.html">「顔がたるんできた気がする…」それ、鍼灸で内側から引き上げられます</a>
+          <a href="kata-kori-20260401.html">春になると首や肩が重くなる…季節の変わり目こそ鍼灸でリセットを</a>
+          <a href="kata-kori-20260402.html">首がいつも重だるい…30〜50代女性に多い慢性的な首こりの原因と鍼灸ケア</a>
+          <a href="jiritsushinkei-20260403.html">イライラ・気分の波・やる気が出ない…それ、自律神経の乱れが原因かもしれません</a>
+          <a href="ninkatsu-20260404.html">妊活中の体づくりに鍼灸が選ばれる理由｜ホルモンバランスと血流を、内側から整える</a>
+          <a href="biyoshin-20260405.html">忙しい毎日の、小さなご褒美に。美容鍼でフェイスラインとくすみをリセット</a>
+          <a href="kata-kori-20260407.html">新年度の首こり・肩こりが止まらない理由と、鍼灸でできること</a>
+          <a href="jiritsushinkei-20260408.html">朝だるい、頭が重い…春の自律神経の乱れを鍼灸で整える</a>
+          <a href="atopy-20260408.html">アトピー性皮膚炎と鍼灸｜かゆみ・炎症を繰り返す肌に、内側からアプローチ</a>
+        </nav>
       </div>
     </section>
   </main>
@@ -98,7 +114,7 @@
 
   <script src="../js/main.js"></script>
   <script>
-    fetch('/blog/posts.json?v=' + Date.now())
+    fetch('/blog/posts.json')
       .then(r => r.json())
       .then(posts => {
         const grid = document.getElementById('all-blog-grid');

@@ -7,7 +7,7 @@
 **必ず以下のコマンドを実行して画像を決定すること。絶対に自分で決めない。**
 
 ```bash
-python3 /Users/sakiko/Desktop/ときのはり鍼灸院自動化/website/pick_blog_image.py
+python3 /Users/sakiko/Projects/tokinohari/website/pick_blog_image.py
 ```
 
 このスクリプトが返した画像ファイル名をアイキャッチに使う。
@@ -21,7 +21,8 @@ python3 /Users/sakiko/Desktop/ときのはり鍼灸院自動化/website/pick_blo
 3. `【アイキャッチ画像.jpg】` を手順1で取得した画像名に置き換える
 4. `blog/posts.json` の先頭に新記事を追加（imageフィールドに同じ画像名）
 5. `sitemap.xml` に新記事URLを追加
-6. git add → commit → push
+6. `blog/index.html` のSEO静的リンク `<nav aria-label="ブログ記事一覧">` に `<a href="【ファイル名.html】">【記事タイトル】</a>` を先頭に追加する（Googlebot用。必須）
+7. git add → commit → push
 
 ### 利用可能な画像一覧
 
